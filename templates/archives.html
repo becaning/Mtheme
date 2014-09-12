@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- include holderjs -->
+        <script src="http://cdn.bootcss.com/holder/2.4.0/holder.js"></script>
+        <!-- <link rel="stylesheet" href="../static/style.css" media="all"> -->
+        <style>
+            body{
+                background: #ddd;
+            }
+            .sidebar{
+                    position: fixed;
+                    top:0px;
+                    bottom: 0px;
+                    left: 0px;
+                    border: 1px solid #ccc;
+                    z-index: 1000;
+                    overflow-y: auto;
+            }
+            .main{
+            	overflow-x: hidden;
+            }
+            .bd{
+                border: red solid 1px;
+            }
+
+            .logo{
+                margin: 40px auto 20px
+            }
+
+            .socil{
+                margin: auto 5px;
+            }
+
+            .nav-sidebar > li > a {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+            .nav-sidebar > li > a{
+                color: #000;
+            }
+            .nav-sidebar > li >a:hover{
+                background: #ccc;
+                color: #428bca
+
+            }
+            .nav-sidebar > .active > a:focus {
+                color: #fff;
+                background: #428bca;
+            }
+
+
+            .content-list > li{
+				margin: 50px auto;
+				border-bottom: 2px #999 solid;
+            }
+            
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img src="holder.js/200x200/sky" class='logo img-circle img-thumbnail' alt="logo">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class='socil img-circle img-thumbnail' src="holder.js/50x50/sky" alt="">
+                        <img class='socil img-circle img-thumbnail' src="holder.js/50x50/sky" alt="">
+                        <img class='socil img-circle img-thumbnail' src="holder.js/50x50/sky" alt="">
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-2">
+                        <ul class="nav nav-sidebar">
+                            <li><a href="">Overview</a></li>
+                            <li><a href="">Reports</a></li>
+                            <li><a href="">Analytics</a></li>
+                            <li><a href="">Export</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9 col-md-offset-3 main">
+				<h1>Archives for {{ SITENAME }}</h1>
+
+				<dl>
+				{% for article in dates %}
+				    <dt>{{ article.locale_date }}</dt>
+				    <dd><a href="{{ SITEURL }}/{{ article.url }}" class='h3'>{{ article.title }}</a></dd>
+				{% endfor %}
+				</dl>
+            
+            </div>
+        </div>          
+    </div>
+</body>
+</html>
