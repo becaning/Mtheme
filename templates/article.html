@@ -1,26 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="content" class="body">
-    <header>
-        <h2 class="entry-title">
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-         title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-            {% import 'translations.html' as translations with context %}
-            {{ translations.translations_for(article) }}
-    </header>
-    <footer class="post-info">
-        <abbr class="published" title="{{ article.date.isoformat() }}">
-        {{ article.locale_date }}
-        </abbr>
-        {% if article.modified %}
-        <abbr class="modified" title="{{ article.modified.isoformat() }}">
-        {{ article.locale_modified }}
-        </abbr>
-        {% endif %}
-    </footer><!-- /.post-info -->
-    <div class="entry-content">
-        {{ article.content }}
-    
+    <section>
+                <div class="hentry">
+                    <h1 class="entry-title">
+                        <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
+                        <div class="entry-meta">
+                             {{ article.date|strftime('%Y %b %d') }} 
+                        </div>
+                    </h1>
+
+                    <div class="entry-content">
+                        {{ article.content }}
+                    </div>
+                </div>
+
         <!-- 多说评论框 start -->
         <div class="ds-thread" data-thread-key="{{ article.url }}" data-title="{{ article.title }}" data-url="{{ SITEURL }}/{{ article.url }}"></div>
         <!-- 多说评论框 end --> 
@@ -38,7 +31,5 @@
 	        </script>
         <!-- 多说公共JS代码 end -->
 
-    </div><!-- /.entry-content -->
-
-</section>
+    </section>
 {% endblock content %}

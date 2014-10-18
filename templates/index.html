@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <section>
-
-	<ul class='list-unstyled content-list'>
 		{% for article in articles_page.object_list %}
-		<li >
-	        <article class="hentry">
-	                <header> <h2><a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
-	                <hr>
+	        <article >
 	        </article>
-		</li>
+                <div class="hentry">
+                    <h1 class="entry-title">
+                        <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
+                        <div class="entry-meta">
+                             {{ article.date|strftime('%Y %b %d') }} 
+                        </div>
+                    </h1>
+
+                    <div class="entry-content">
+                    </div>
+                </div>
 		{% endfor %}
-	</ul>
 
 </section><!-- /#content -->
 {% endblock content %}
