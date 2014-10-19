@@ -2,10 +2,10 @@
 {% block content %}
 <h1>Archives for {{ SITENAME }}</h1>
 
-<dl class='entry-list'>
+<dl>
 {% for article in dates %}
     <dt> {{ article.date|strftime('%Y %b %d') }} </dt> 
-    <dd class='entry-item'><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+    <dd><h3><a href="/{{ article.url }}">{{ article.title }}</a></h3></dd>
 {% endfor %}
 </dl>
 {% endblock %}

@@ -2,19 +2,18 @@
 {% block content %}
 <section>
 		{% for article in articles_page.object_list %}
-	        <article >
-	        </article>
-                <div class="hentry">
-                    <h1 class="entry-title">
-                        <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
-                        <div class="entry-meta">
-                             {{ article.date|strftime('%Y %b %d') }} 
-                        </div>
-                    </h1>
+        <div>
+            <h1>
+                <a href="/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
+            </h1>
+            <div>
+                 {{ article.date|strftime('%Y %b %d') }} 
+            </div>
+            {{ article.summary }}
 
-                    <div class="entry-content">
-                    </div>
-                </div>
+        </div>
+        <p><a class="btn btn-primary" href="/{{ article.url }}">Read more . . .</a></p>
+        <br>
 		{% endfor %}
 
 </section><!-- /#content -->
