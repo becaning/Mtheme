@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
         <meta charset="UTF-8">
-        <title>花满楼</title>
+        {% block title %}
+
+        {% endblock %}
         <script src="/theme/js/jquery.min.js"></script>
         <script src="/theme/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="/theme/css/united-bootstrap.css" media="all">
@@ -54,9 +56,6 @@
         {% endblock %}
         </div>
     </div>
-</div>
-<div class="progress progress-striped active">
-    <div class="progress-bar" style="width: 100%"></div>
 </div>
 </body>
 </html>
