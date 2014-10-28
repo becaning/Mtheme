@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block title %}
-    <title>花满楼</title>
+<title>{{ SITENAME }}</title>
 {% endblock title %}
 
 {% block content %}
+    {{ THEMECOLOR }}
 <section>
 		{% for article in articles_page.object_list %}
         <div>
